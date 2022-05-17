@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -14,8 +15,24 @@
             <form action="/livro/update" method="post">
                 <input type="hidden" name="id" value="${livro.id}" />
                 <div class="form-group">
-                    <label for="nome">Nome:</label>
-                    <input type="text" name="nome" value="${livro.nome}" />
+                    <label for="titulo">Titulo:</label>
+                    <input type="text" name="titulo" value="${livro.titulo}" />
+                </div>
+                <div class="form-group">
+                    <label for="genero">Gênero:</label>
+                    <select name="genero" class="form-control">
+                        <c:forEach var="g" items="${generos}">
+                            <option ${livro.genero.id == g.id ? "selected" : ""} value="${g.id}">${g.nome}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="autor">Autor:</label>
+                    <select name="autor" class="form-control">
+                        <c:forEach var="a" items="${autores}">
+                            <option ${livro.autor.id == a.id ? "selected" : ""} value="${a.id}">${a.nome}</option>
+                        </c:forEach>
+                    </select>
                 </div>
                 <hr />
                 <a href="/livro/list" class="btn btn-primary">Voltar</a>

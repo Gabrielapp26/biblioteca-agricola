@@ -15,7 +15,7 @@ import application.repositories.AutorRepository;
  
 @Controller
 @RequestMapping("/autor")
-public class AutorController{
+public class AutorController {
     @Autowired
     private AutorRepository autorRepo;
  

@@ -5,34 +5,30 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <title>Livros</title>
+        <title>Gêneros</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     </head>
     <body>
         <main class="container">
-            <h1>Livros</h1>
-            <a href="/livro/insert" class="btn btn-primary">Novo Livro</a>
+            <h1>Gêneros</h1>
+            <a href="/genero/insert" class="btn btn-primary">Novo Gênero</a>
             <hr />
             <table class="table">
                 <thead>
                     <tr>
                         <th>Id</th>
-                        <th>Título</th>
-                        <th>Gênero</th>
-                        <th>Autor</th>
+                        <th>Nome</th>
                         <th>&nbsp;</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <c:forEach var="l" items="${livros}">
+                    <c:forEach var="g" items="${generos}">
                         <tr>
-                            <td>${l.id}</td>
-                            <td>${l.titulo}</td>
-                            <td>${l.genero.nome}</td>
-                            <td>${l.autor.nome}</td>
+                            <td>${g.id}</td>
+                            <td>${g.nome}</td>
                             <td>
-                                <a href="/livro/update/${l.id}" class="btn btn-primary">Editar</a>
-                                <a href="/livro/delete/${l.id}" class="btn btn-danger">Remover</a>
+                                <a href="/genero/update/${g.id}" class="btn btn-primary">Editar</a>
+                                <a href="/genero/delete/${g.id}" class="btn btn-danger">Remover</a>
                             </td>
                         </tr>
                     </c:forEach>
